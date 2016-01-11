@@ -9,7 +9,13 @@
 <% end %>
 
 
-<%= content_tag :h3, "KEY____Email_______Username_______Password" %>
+<%= content_tag :h3, "Email_______Username_______Password______Key________Status" %>
 <% @users.each do |u| %>
-	<%= content_tag :h3, u.key + ' ' + u.email + ' ' + u.username + ' ' + u.password %>
+	<ul>
+		<li><%= content_tag :span, u.key %></li>
+		<li><%= content_tag :span, "Email: " + u.email %></li>
+		<li><%= content_tag :span, 'Username: ' + u.username %></li>
+		<li><%= content_tag :span, 'Password: ' + u.password %></li>
+	</ul>
+	<br/>
 <% end %>

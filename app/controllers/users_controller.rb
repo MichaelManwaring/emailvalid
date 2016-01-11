@@ -6,8 +6,10 @@ class UsersController < ApplicationController
 
   def create
   	@user = User.new(user_params)
-  	@user.key = 10*rand
+  	@user.status = (3*rand).ceil
+  	@user.key = (8999*rand+1000).ceil 	
   	@user.save
+  	@status=@user.status_print
   end
 
   def edit

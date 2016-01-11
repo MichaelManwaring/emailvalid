@@ -1,4 +1,4 @@
-<% if @user.errors.full_messages %>
+<% if @user.errors.full_messages.count > 0 %>
 	<%= link_to "TRY AGAIN YOU FILTHY ANIMAL", root_path %>
 	<ul>
 		<% @user.errors.full_messages.each do |e| %>
@@ -7,6 +7,11 @@
 	</ul>
 <% else %>
 	<%= link_to "USER CREATED", root_path %>
-
-
+	<%= content_tag :h3, "This is a " + @status +" user....." %>
+	<ul>
+		<li><%= content_tag :span, @user.key %></li>
+		<li><%= content_tag :span, "Email: " + @user.email %></li>
+		<li><%= content_tag :span, 'Username: ' + @user.username %></li>
+		<li><%= content_tag :span, 'Password: ' + @user.password %></li>
+	</ul>
 <% end %>

@@ -10,5 +10,15 @@ class User < ActiveRecord::Base
 	validates :email, uniqueness: true, length: {in: 6..40}, email: true
 	validates :username, uniqueness: true, length: {in: 4..30}
 	validates :password, length: {in: 4..30}
-	validates :key, uniqueness: true
+
+	STATUS = ['imaginary', 'real', 'mystical', 'unreal']
+
+	def status_print
+		STATUS[self.status]
+	end
+
+	scope :real, -> { where(status: 1)}
+	scope :unreal, -> { where(status: 3)}
+	scope :imaginary, -> { where(status: 0)}
+	scope :mystical, -> { where(status: 2)}
 end
