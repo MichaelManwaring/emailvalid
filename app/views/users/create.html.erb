@@ -1,0 +1,12 @@
+<% if @user.errors.full_messages %>
+	<%= link_to "TRY AGAIN YOU FILTHY ANIMAL", root_path %>
+	<ul>
+		<% @user.errors.full_messages.each do |e| %>
+			<li><%= e %></li> <br/>
+		<% end %>
+	</ul>
+<% else %>
+	<%= link_to "USER CREATED", root_path %>
+
+
+<% end %>

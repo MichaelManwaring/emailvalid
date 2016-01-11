@@ -1,0 +1,15 @@
+<%= form_for @user do |f| %>
+  <%=f.label :email %>
+  <%=f.text_field :email %>  
+  <%=f.label :username %>
+  <%=f.text_field :username %>  
+  <%=f.label :password %>
+  <%=f.text_field :password %>
+  <%=f.submit :create %>
+<% end %>
+
+
+<%= content_tag :h3, "KEY____Email_______Username_______Password" %>
+<% @users.each do |u| %>
+	<%= content_tag :h3, u.key + ' ' + u.email + ' ' + u.username + ' ' + u.password %>
+<% end %>
